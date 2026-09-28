@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Sistem Akuntansi Wedding Organizer
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                WO
+            </div>
+
+            <div>
+                <h2>WedFinance</h2>
+                <span>Accounting System</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button
+                class="nav-item active"
+                onclick="showSection('dashboard')"
+            >
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('pelanggan')"
+            >
+                <span>♙</span>
+                Pelanggan
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('paket')"
+            >
+                <span>◇</span>
+                Paket Wedding
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('transaksi')"
+            >
+                <span>▣</span>
+                Transaksi
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('pembayaran')"
+            >
+                <span>Rp</span>
+                Pembayaran
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-info">
+                <small>Sistem Akuntansi</small>
+                <strong>Wedding Organizer</strong>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="welcome">
+                    Selamat datang 👋
+                </p>
+
+                <h1>
+                    Sistem Akuntansi WO
+                </h1>
+
+            </div>
+
+
+            <div class="date-box">
+
+                <span id="currentDate"></span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- DASHBOARD -->
+
+        <section
+            id="dashboard"
+            class="section active"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <span class="eyebrow">
+                        OVERVIEW
+                    </span>
+
+                    <h2>
+                        Ringkasan Keuangan
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card income">
+
+                    <div class="stat-icon">
+                        Rp
+                    </div>
+
+                    <div>
+                        <span>Total Pendapatan</span>
+                        <h3 id="totalPendapatan">
+                            Rp0
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card payment">
+
+                    <div class="stat-icon">
+                        ↓
+                    </div>
+
+                    <div>
+                        <span>Total Pembayaran</span>
+                        <h3 id="totalPembayaran">
+                            Rp0
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card receivable">
+
+                    <div class="stat-icon">
+                        !
+                    </div>
+
+                    <div>
+                        <span>Total Piutang</span>
+                        <h3 id="totalPiutang">
+                            Rp0
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card customer">
+
+                    <div class="stat-icon">
+                        ♙
+                    </div>
+
+                    <div>
+                        <span>Total Pelanggan</span>
+                        <h3 id="jumlahPelanggan">
+                            0
+                        </h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="dashboard-grid">
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow">
+                                STATUS
+                            </span>
+
+                            <h3>
+                                Ringkasan Piutang
+                            </h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-wrapper">
+
+                        <div class="progress-label">
+
+                            <span>
+                                Pembayaran diterima
+                            </span>
+
+                            <strong id="paymentPercentage">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                id="paymentProgress"
+                                class="progress-bar"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card quick-card">
+
+                    <span class="eyebrow">
+                        QUICK ACTION
+                    </span>
+
+                    <h3>
+                        Kelola Data
+                    </h3>
+
+                    <div class="quick-buttons">
+
+                        <button
+                            onclick="openModal('pelangganModal')"
+                        >
+                            + Pelanggan
+                        </button>
+
+                        <button
+                            onclick="openModal('transaksiModal')"
+                        >
+                            + Transaksi
+                        </button>
+
+                        <button
+                            onclick="openModal('pembayaranModal')"
+                        >
+                            + Pembayaran
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PELANGGAN -->
+
+        <section
+            id="pelanggan"
+            class="section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MASTER DATA
+                    </span>
+
+                    <h2>
+                        Data Pelanggan
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="openModal('pelangganModal')"
+                >
+                    + Tambah Pelanggan
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Nama</th>
+                                <th>No. HP</th>
+                                <th>Email</th>
+                                <th>Alamat</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="pelangganTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PAKET -->
+
+        <section
+            id="paket"
+            class="section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MASTER DATA
+                    </span>
+
+                    <h2>
+                        Paket Wedding
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="openModal('paketModal')"
+                >
+                    + Tambah Paket
+                </button>
+
+            </div>
+
+
+            <div
+                id="paketContainer"
+                class="package-grid"
+            >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TRANSAKSI -->
+
+        <section
+            id="transaksi"
+            class="section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        TRANSACTION
+                    </span>
+
+                    <h2>
+                        Transaksi Wedding
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="openModal('transaksiModal')"
+                >
+                    + Tambah Transaksi
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Tanggal</th>
+                                <th>Pelanggan</th>
+                                <th>Paket</th>
+                                <th>Total</th>
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="transaksiTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PEMBAYARAN -->
+
+        <section
+            id="pembayaran"
+            class="section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        PAYMENT
+                    </span>
+
+                    <h2>
+                        Data Pembayaran
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="openModal('pembayaranModal')"
+                >
+                    + Tambah Pembayaran
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Tanggal</th>
+                                <th>Transaksi</th>
+                                <th>Pelanggan</th>
+                                <th>Jumlah</th>
+                                <th>Metode</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="pembayaranTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- MODAL PELANGGAN -->
+
+<div
+    id="pelangganModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="eyebrow">
+                    DATA PELANGGAN
+                </span>
+
+                <h2>
+                    Tambah Pelanggan
+                </h2>
+            </div>
+
+            <button
+                class="close-btn"
+                onclick="closeModal('pelangganModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="pelangganForm">
+
+            <input
+                type="text"
+                id="namaPelanggan"
+                placeholder="Nama pelanggan"
+                required
+            >
+
+            <input
+                type="text"
+                id="noHp"
+                placeholder="Nomor HP"
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email"
+            >
+
+            <textarea
+                id="alamat"
+                placeholder="Alamat"
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="primary-btn full"
+            >
+                Simpan Pelanggan
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- MODAL PAKET -->
+
+<div
+    id="paketModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="eyebrow">
+                    MASTER DATA
+                </span>
+
+                <h2>
+                    Tambah Paket
+                </h2>
+            </div>
+
+            <button
+                class="close-btn"
+                onclick="closeModal('paketModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="paketForm">
+
+            <input
+                type="text"
+                id="namaPaket"
+                placeholder="Nama paket"
+                required
+            >
+
+            <textarea
+                id="deskripsiPaket"
+                placeholder="Deskripsi paket"
+            ></textarea>
+
+            <input
+                type="number"
+                id="hargaPaket"
+                placeholder="Harga paket"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="primary-btn full"
+            >
+                Simpan Paket
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- MODAL TRANSAKSI -->
+
+<div
+    id="transaksiModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="eyebrow">
+                    TRANSAKSI
+                </span>
+
+                <h2>
+                    Tambah Transaksi
+                </h2>
+            </div>
+
+            <button
+                class="close-btn"
+                onclick="closeModal('transaksiModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="transaksiForm">
+
+            <select
+                id="transaksiPelanggan"
+                required
+            >
+
+                <option value="">
+                    Pilih pelanggan
+                </option>
+
+            </select>
+
+
+            <select
+                id="transaksiPaket"
+                required
+            >
+
+                <option value="">
+                    Pilih paket
+                </option>
+
+            </select>
+
+
+            <input
+                type="date"
+                id="tanggalTransaksi"
+                required
+            >
+
+
+            <input
+                type="number"
+                id="totalTransaksi"
+                placeholder="Total transaksi"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="primary-btn full"
+            >
+                Simpan Transaksi
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- MODAL PEMBAYARAN -->
+
+<div
+    id="pembayaranModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="eyebrow">
+                    PEMBAYARAN
+                </span>
+
+                <h2>
+                    Tambah Pembayaran
+                </h2>
+            </div>
+
+            <button
+                class="close-btn"
+                onclick="closeModal('pembayaranModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="pembayaranForm">
+
+            <select
+                id="pembayaranTransaksi"
+                required
+            >
+
+                <option value="">
+                    Pilih transaksi
+                </option>
+
+            </select>
+
+
+            <input
+                type="date"
+                id="tanggalBayar"
+                required
+            >
+
+
+            <input
+                type="number"
+                id="jumlahBayar"
+                placeholder="Jumlah pembayaran"
+                required
+            >
+
+
+            <select
+                id="metodeBayar"
+                required
+            >
+
+                <option value="">
+                    Pilih metode pembayaran
+                </option>
+
+                <option value="Transfer">
+                    Transfer
+                </option>
+
+                <option value="Cash">
+                    Cash
+                </option>
+
+                <option value="QRIS">
+                    QRIS
+                </option>
+
+            </select>
+
+
+            <textarea
+                id="keterangan"
+                placeholder="Keterangan"
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="primary-btn full"
+            >
+                Simpan Pembayaran
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<script src="/script.js"></script>
+
+</body>
+
+</html>
