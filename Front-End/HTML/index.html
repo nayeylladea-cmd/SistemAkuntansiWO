@@ -11,7 +11,7 @@
     >
 
     <title>
-        Sistem Akuntansi Wedding Organizer
+        Sistem Akuntansi WO
     </title>
 
     <link
@@ -24,7 +24,6 @@
 
 <body>
 
-<div class="app">
 
     <!-- SIDEBAR -->
 
@@ -37,7 +36,7 @@
             </div>
 
             <div>
-                <h2>WedFinance</h2>
+                <h2>Wedora</h2>
                 <span>Accounting System</span>
             </div>
 
@@ -50,8 +49,8 @@
                 class="nav-item active"
                 onclick="showSection('dashboard')"
             >
-                <span>⌂</span>
-                Dashboard
+                🏠
+                <span>Dashboard</span>
             </button>
 
 
@@ -59,8 +58,8 @@
                 class="nav-item"
                 onclick="showSection('pelanggan')"
             >
-                <span>♙</span>
-                Pelanggan
+                👤
+                <span>Pelanggan</span>
             </button>
 
 
@@ -68,8 +67,8 @@
                 class="nav-item"
                 onclick="showSection('paket')"
             >
-                <span>◇</span>
-                Paket Wedding
+                💍
+                <span>Paket Wedding</span>
             </button>
 
 
@@ -77,8 +76,8 @@
                 class="nav-item"
                 onclick="showSection('transaksi')"
             >
-                <span>▣</span>
-                Transaksi
+                🧾
+                <span>Transaksi</span>
             </button>
 
 
@@ -86,8 +85,8 @@
                 class="nav-item"
                 onclick="showSection('pembayaran')"
             >
-                <span>Rp</span>
-                Pembayaran
+                💳
+                <span>Pembayaran</span>
             </button>
 
         </nav>
@@ -95,10 +94,13 @@
 
         <div class="sidebar-bottom">
 
-            <div class="system-info">
-                <small>Sistem Akuntansi</small>
-                <strong>Wedding Organizer</strong>
-            </div>
+            <small>
+                Sistem Akuntansi
+            </small>
+
+            <strong>
+                Wedding Organizer
+            </strong>
 
         </div>
 
@@ -110,24 +112,20 @@
 
     <main class="main">
 
+
+        <!-- HEADER -->
+
         <header class="topbar">
 
             <div>
 
-                <p class="welcome">
-                    Selamat datang 👋
+                <p class="date" id="currentDate">
+                    -
                 </p>
 
                 <h1>
-                    Sistem Akuntansi WO
+                    Sistem Akuntansi Wedding Organizer
                 </h1>
-
-            </div>
-
-
-            <div class="date-box">
-
-                <span id="currentDate"></span>
 
             </div>
 
@@ -142,16 +140,23 @@
             class="section active"
         >
 
-            <div class="section-title">
+            <div class="section-header">
 
                 <div>
+
                     <span class="eyebrow">
                         OVERVIEW
                     </span>
 
                     <h2>
-                        Ringkasan Keuangan
+                        Dashboard
                     </h2>
+
+                    <p>
+                        Pantau pendapatan, pembayaran,
+                        piutang, dan pelanggan.
+                    </p>
+
                 </div>
 
             </div>
@@ -159,65 +164,86 @@
 
             <div class="stats-grid">
 
-                <div class="stat-card income">
 
-                    <div class="stat-icon">
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
                         Rp
                     </div>
 
                     <div>
-                        <span>Total Pendapatan</span>
+
+                        <span>
+                            Total Pendapatan
+                        </span>
+
                         <h3 id="totalPendapatan">
                             Rp0
                         </h3>
+
                     </div>
 
                 </div>
 
 
-                <div class="stat-card payment">
+                <div class="stat-card">
 
-                    <div class="stat-icon">
-                        ↓
+                    <div class="stat-icon green">
+                        ✓
                     </div>
 
                     <div>
-                        <span>Total Pembayaran</span>
+
+                        <span>
+                            Total Pembayaran
+                        </span>
+
                         <h3 id="totalPembayaran">
                             Rp0
                         </h3>
+
                     </div>
 
                 </div>
 
 
-                <div class="stat-card receivable">
+                <div class="stat-card">
 
-                    <div class="stat-icon">
+                    <div class="stat-icon orange">
                         !
                     </div>
 
                     <div>
-                        <span>Total Piutang</span>
+
+                        <span>
+                            Total Piutang
+                        </span>
+
                         <h3 id="totalPiutang">
                             Rp0
                         </h3>
+
                     </div>
 
                 </div>
 
 
-                <div class="stat-card customer">
+                <div class="stat-card">
 
-                    <div class="stat-icon">
-                        ♙
+                    <div class="stat-icon blue">
+                        👤
                     </div>
 
                     <div>
-                        <span>Total Pelanggan</span>
+
+                        <span>
+                            Total Pelanggan
+                        </span>
+
                         <h3 id="jumlahPelanggan">
                             0
                         </h3>
+
                     </div>
 
                 </div>
@@ -225,50 +251,47 @@
             </div>
 
 
-
             <div class="dashboard-grid">
+
 
                 <div class="card">
 
                     <div class="card-header">
 
                         <div>
+
                             <span class="eyebrow">
-                                STATUS
+                                PAYMENT
                             </span>
 
                             <h3>
-                                Ringkasan Piutang
+                                Progress Pembayaran
                             </h3>
+
                         </div>
+
+                        <strong
+                            id="paymentPercentage"
+                        >
+                            0%
+                        </strong>
 
                     </div>
 
 
-                    <div class="progress-wrapper">
+                    <div class="progress">
 
-                        <div class="progress-label">
-
-                            <span>
-                                Pembayaran diterima
-                            </span>
-
-                            <strong id="paymentPercentage">
-                                0%
-                            </strong>
-
-                        </div>
-
-                        <div class="progress">
-
-                            <div
-                                id="paymentProgress"
-                                class="progress-bar"
-                            ></div>
-
-                        </div>
+                        <div
+                            id="paymentProgress"
+                            class="progress-bar"
+                        ></div>
 
                     </div>
+
+                    <p class="muted">
+                        Persentase pembayaran
+                        dibandingkan total transaksi.
+                    </p>
 
                 </div>
 
@@ -280,7 +303,7 @@
                     </span>
 
                     <h3>
-                        Kelola Data
+                        Tambahkan Data
                     </h3>
 
                     <div class="quick-buttons">
@@ -289,6 +312,12 @@
                             onclick="openModal('pelangganModal')"
                         >
                             + Pelanggan
+                        </button>
+
+                        <button
+                            onclick="openModal('paketModal')"
+                        >
+                            + Paket
                         </button>
 
                         <button
@@ -320,17 +349,21 @@
             class="section"
         >
 
-            <div class="section-title">
+            <div class="section-header">
 
                 <div>
 
                     <span class="eyebrow">
-                        MASTER DATA
+                        CUSTOMER
                     </span>
 
                     <h2>
                         Data Pelanggan
                     </h2>
+
+                    <p>
+                        Daftar pelanggan Wedding Organizer.
+                    </p>
 
                 </div>
 
@@ -345,33 +378,28 @@
             </div>
 
 
-            <div class="card">
+            <div class="table-card">
 
-                <div class="table-container">
+                <table>
 
-                    <table>
+                    <thead>
 
-                        <thead>
+                        <tr>
 
-                            <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>No. HP</th>
+                            <th>Email</th>
+                            <th>Alamat</th>
 
-                                <th>ID</th>
-                                <th>Nama</th>
-                                <th>No. HP</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
+                        </tr>
 
-                            </tr>
+                    </thead>
 
-                        </thead>
+                    <tbody id="pelangganTable">
+                    </tbody>
 
-                        <tbody id="pelangganTable">
-
-                        </tbody>
-
-                    </table>
-
-                </div>
+                </table>
 
             </div>
 
@@ -386,17 +414,21 @@
             class="section"
         >
 
-            <div class="section-title">
+            <div class="section-header">
 
                 <div>
 
                     <span class="eyebrow">
-                        MASTER DATA
+                        WEDDING PACKAGE
                     </span>
 
                     <h2>
                         Paket Wedding
                     </h2>
+
+                    <p>
+                        Daftar paket yang tersedia.
+                    </p>
 
                 </div>
 
@@ -415,7 +447,6 @@
                 id="paketContainer"
                 class="package-grid"
             >
-
             </div>
 
         </section>
@@ -429,7 +460,7 @@
             class="section"
         >
 
-            <div class="section-title">
+            <div class="section-header">
 
                 <div>
 
@@ -440,6 +471,10 @@
                     <h2>
                         Transaksi Wedding
                     </h2>
+
+                    <p>
+                        Catatan transaksi pelanggan.
+                    </p>
 
                 </div>
 
@@ -454,34 +489,29 @@
             </div>
 
 
-            <div class="card">
+            <div class="table-card">
 
-                <div class="table-container">
+                <table>
 
-                    <table>
+                    <thead>
 
-                        <thead>
+                        <tr>
 
-                            <tr>
+                            <th>ID</th>
+                            <th>Tanggal</th>
+                            <th>Pelanggan</th>
+                            <th>Paket</th>
+                            <th>Total</th>
+                            <th>Status</th>
 
-                                <th>ID</th>
-                                <th>Tanggal</th>
-                                <th>Pelanggan</th>
-                                <th>Paket</th>
-                                <th>Total</th>
-                                <th>Status</th>
+                        </tr>
 
-                            </tr>
+                    </thead>
 
-                        </thead>
+                    <tbody id="transaksiTable">
+                    </tbody>
 
-                        <tbody id="transaksiTable">
-
-                        </tbody>
-
-                    </table>
-
-                </div>
+                </table>
 
             </div>
 
@@ -496,7 +526,7 @@
             class="section"
         >
 
-            <div class="section-title">
+            <div class="section-header">
 
                 <div>
 
@@ -505,8 +535,12 @@
                     </span>
 
                     <h2>
-                        Data Pembayaran
+                        Pembayaran
                     </h2>
+
+                    <p>
+                        Catatan pembayaran pelanggan.
+                    </p>
 
                 </div>
 
@@ -521,379 +555,453 @@
             </div>
 
 
-            <div class="card">
+            <div class="table-card">
 
-                <div class="table-container">
+                <table>
 
-                    <table>
+                    <thead>
 
-                        <thead>
+                        <tr>
 
-                            <tr>
+                            <th>ID</th>
+                            <th>Tanggal</th>
+                            <th>Transaksi</th>
+                            <th>Pelanggan</th>
+                            <th>Jumlah</th>
+                            <th>Metode</th>
 
-                                <th>ID</th>
-                                <th>Tanggal</th>
-                                <th>Transaksi</th>
-                                <th>Pelanggan</th>
-                                <th>Jumlah</th>
-                                <th>Metode</th>
+                        </tr>
 
-                            </tr>
+                    </thead>
 
-                        </thead>
+                    <tbody id="pembayaranTable">
+                    </tbody>
 
-                        <tbody id="pembayaranTable">
-
-                        </tbody>
-
-                    </table>
-
-                </div>
+                </table>
 
             </div>
 
         </section>
 
+
     </main>
 
-</div>
 
 
+    <!-- ================================= -->
+    <!-- MODAL PELANGGAN -->
+    <!-- ================================= -->
 
-<!-- MODAL PELANGGAN -->
+    <div
+        id="pelangganModal"
+        class="modal"
+    >
 
-<div
-    id="pelangganModal"
-    class="modal"
->
+        <div class="modal-box">
 
-    <div class="modal-content">
+            <div class="modal-header">
 
-        <div class="modal-header">
+                <div>
 
-            <div>
-                <span class="eyebrow">
-                    DATA PELANGGAN
-                </span>
+                    <span class="eyebrow">
+                        CUSTOMER
+                    </span>
 
-                <h2>
-                    Tambah Pelanggan
-                </h2>
+                    <h3>
+                        Tambah Pelanggan
+                    </h3>
+
+                </div>
+
+                <button
+                    class="close-btn"
+                    onclick="closeModal('pelangganModal')"
+                >
+                    ×
+                </button>
+
             </div>
 
-            <button
-                class="close-btn"
-                onclick="closeModal('pelangganModal')"
-            >
-                ×
-            </button>
+
+            <form id="pelangganForm">
+
+                <label>
+                    Nama Pelanggan
+                </label>
+
+                <input
+                    id="namaPelanggan"
+                    type="text"
+                    required
+                >
+
+
+                <label>
+                    No. HP
+                </label>
+
+                <input
+                    id="noHp"
+                    type="text"
+                >
+
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                >
+
+
+                <label>
+                    Alamat
+                </label>
+
+                <textarea
+                    id="alamat"
+                    rows="3"
+                ></textarea>
+
+
+                <button
+                    class="primary-btn full"
+                    type="submit"
+                >
+                    Simpan Pelanggan
+                </button>
+
+            </form>
 
         </div>
 
-
-        <form id="pelangganForm">
-
-            <input
-                type="text"
-                id="namaPelanggan"
-                placeholder="Nama pelanggan"
-                required
-            >
-
-            <input
-                type="text"
-                id="noHp"
-                placeholder="Nomor HP"
-            >
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Email"
-            >
-
-            <textarea
-                id="alamat"
-                placeholder="Alamat"
-            ></textarea>
-
-
-            <button
-                type="submit"
-                class="primary-btn full"
-            >
-                Simpan Pelanggan
-            </button>
-
-        </form>
-
     </div>
 
-</div>
 
 
+    <!-- ================================= -->
+    <!-- MODAL PAKET -->
+    <!-- ================================= -->
 
-<!-- MODAL PAKET -->
+    <div
+        id="paketModal"
+        class="modal"
+    >
 
-<div
-    id="paketModal"
-    class="modal"
->
+        <div class="modal-box">
 
-    <div class="modal-content">
+            <div class="modal-header">
 
-        <div class="modal-header">
+                <div>
 
-            <div>
-                <span class="eyebrow">
-                    MASTER DATA
-                </span>
+                    <span class="eyebrow">
+                        PACKAGE
+                    </span>
 
-                <h2>
-                    Tambah Paket
-                </h2>
+                    <h3>
+                        Tambah Paket
+                    </h3>
+
+                </div>
+
+                <button
+                    class="close-btn"
+                    onclick="closeModal('paketModal')"
+                >
+                    ×
+                </button>
+
             </div>
 
-            <button
-                class="close-btn"
-                onclick="closeModal('paketModal')"
-            >
-                ×
-            </button>
+
+            <form id="paketForm">
+
+                <label>
+                    Nama Paket
+                </label>
+
+                <input
+                    id="namaPaket"
+                    type="text"
+                    required
+                >
+
+
+                <label>
+                    Deskripsi
+                </label>
+
+                <textarea
+                    id="deskripsiPaket"
+                    rows="3"
+                ></textarea>
+
+
+                <label>
+                    Harga Paket
+                </label>
+
+                <input
+                    id="hargaPaket"
+                    type="number"
+                    min="0"
+                    required
+                >
+
+
+                <button
+                    class="primary-btn full"
+                    type="submit"
+                >
+                    Simpan Paket
+                </button>
+
+            </form>
 
         </div>
 
-
-        <form id="paketForm">
-
-            <input
-                type="text"
-                id="namaPaket"
-                placeholder="Nama paket"
-                required
-            >
-
-            <textarea
-                id="deskripsiPaket"
-                placeholder="Deskripsi paket"
-            ></textarea>
-
-            <input
-                type="number"
-                id="hargaPaket"
-                placeholder="Harga paket"
-                required
-            >
-
-
-            <button
-                type="submit"
-                class="primary-btn full"
-            >
-                Simpan Paket
-            </button>
-
-        </form>
-
     </div>
 
-</div>
 
 
+    <!-- ================================= -->
+    <!-- MODAL TRANSAKSI -->
+    <!-- ================================= -->
 
-<!-- MODAL TRANSAKSI -->
+    <div
+        id="transaksiModal"
+        class="modal"
+    >
 
-<div
-    id="transaksiModal"
-    class="modal"
->
+        <div class="modal-box">
 
-    <div class="modal-content">
+            <div class="modal-header">
 
-        <div class="modal-header">
+                <div>
 
-            <div>
-                <span class="eyebrow">
-                    TRANSAKSI
-                </span>
+                    <span class="eyebrow">
+                        TRANSACTION
+                    </span>
 
-                <h2>
-                    Tambah Transaksi
-                </h2>
+                    <h3>
+                        Tambah Transaksi
+                    </h3>
+
+                </div>
+
+                <button
+                    class="close-btn"
+                    onclick="closeModal('transaksiModal')"
+                >
+                    ×
+                </button>
+
             </div>
 
-            <button
-                class="close-btn"
-                onclick="closeModal('transaksiModal')"
-            >
-                ×
-            </button>
+
+            <form id="transaksiForm">
+
+                <label>
+                    Pelanggan
+                </label>
+
+                <select
+                    id="transaksiPelanggan"
+                    required
+                >
+
+                    <option value="">
+                        Pilih pelanggan
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Paket Wedding
+                </label>
+
+                <select
+                    id="transaksiPaket"
+                    required
+                >
+
+                    <option value="">
+                        Pilih paket
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Tanggal Transaksi
+                </label>
+
+                <input
+                    id="tanggalTransaksi"
+                    type="date"
+                    required
+                >
+
+
+                <label>
+                    Total Transaksi
+                </label>
+
+                <input
+                    id="totalTransaksi"
+                    type="number"
+                    min="0"
+                    required
+                >
+
+
+                <button
+                    class="primary-btn full"
+                    type="submit"
+                >
+                    Simpan Transaksi
+                </button>
+
+            </form>
 
         </div>
 
-
-        <form id="transaksiForm">
-
-            <select
-                id="transaksiPelanggan"
-                required
-            >
-
-                <option value="">
-                    Pilih pelanggan
-                </option>
-
-            </select>
-
-
-            <select
-                id="transaksiPaket"
-                required
-            >
-
-                <option value="">
-                    Pilih paket
-                </option>
-
-            </select>
-
-
-            <input
-                type="date"
-                id="tanggalTransaksi"
-                required
-            >
-
-
-            <input
-                type="number"
-                id="totalTransaksi"
-                placeholder="Total transaksi"
-                required
-            >
-
-
-            <button
-                type="submit"
-                class="primary-btn full"
-            >
-                Simpan Transaksi
-            </button>
-
-        </form>
-
     </div>
 
-</div>
 
 
+    <!-- ================================= -->
+    <!-- MODAL PEMBAYARAN -->
+    <!-- ================================= -->
 
-<!-- MODAL PEMBAYARAN -->
+    <div
+        id="pembayaranModal"
+        class="modal"
+    >
 
-<div
-    id="pembayaranModal"
-    class="modal"
->
+        <div class="modal-box">
 
-    <div class="modal-content">
+            <div class="modal-header">
 
-        <div class="modal-header">
+                <div>
 
-            <div>
-                <span class="eyebrow">
-                    PEMBAYARAN
-                </span>
+                    <span class="eyebrow">
+                        PAYMENT
+                    </span>
 
-                <h2>
-                    Tambah Pembayaran
-                </h2>
+                    <h3>
+                        Tambah Pembayaran
+                    </h3>
+
+                </div>
+
+                <button
+                    class="close-btn"
+                    onclick="closeModal('pembayaranModal')"
+                >
+                    ×
+                </button>
+
             </div>
 
-            <button
-                class="close-btn"
-                onclick="closeModal('pembayaranModal')"
-            >
-                ×
-            </button>
+
+            <form id="pembayaranForm">
+
+                <label>
+                    Transaksi
+                </label>
+
+                <select
+                    id="pembayaranTransaksi"
+                    required
+                >
+
+                    <option value="">
+                        Pilih transaksi
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Tanggal Pembayaran
+                </label>
+
+                <input
+                    id="tanggalBayar"
+                    type="date"
+                    required
+                >
+
+
+                <label>
+                    Jumlah Pembayaran
+                </label>
+
+                <input
+                    id="jumlahBayar"
+                    type="number"
+                    min="0"
+                    required
+                >
+
+
+                <label>
+                    Metode Pembayaran
+                </label>
+
+                <select
+                    id="metodeBayar"
+                    required
+                >
+
+                    <option value="">
+                        Pilih metode
+                    </option>
+
+                    <option value="Transfer">
+                        Transfer
+                    </option>
+
+                    <option value="Cash">
+                        Cash
+                    </option>
+
+                    <option value="QRIS">
+                        QRIS
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Keterangan
+                </label>
+
+                <textarea
+                    id="keterangan"
+                    rows="3"
+                ></textarea>
+
+
+                <button
+                    class="primary-btn full"
+                    type="submit"
+                >
+                    Simpan Pembayaran
+                </button>
+
+            </form>
 
         </div>
 
-
-        <form id="pembayaranForm">
-
-            <select
-                id="pembayaranTransaksi"
-                required
-            >
-
-                <option value="">
-                    Pilih transaksi
-                </option>
-
-            </select>
-
-
-            <input
-                type="date"
-                id="tanggalBayar"
-                required
-            >
-
-
-            <input
-                type="number"
-                id="jumlahBayar"
-                placeholder="Jumlah pembayaran"
-                required
-            >
-
-
-            <select
-                id="metodeBayar"
-                required
-            >
-
-                <option value="">
-                    Pilih metode pembayaran
-                </option>
-
-                <option value="Transfer">
-                    Transfer
-                </option>
-
-                <option value="Cash">
-                    Cash
-                </option>
-
-                <option value="QRIS">
-                    QRIS
-                </option>
-
-            </select>
-
-
-            <textarea
-                id="keterangan"
-                placeholder="Keterangan"
-            ></textarea>
-
-
-            <button
-                type="submit"
-                class="primary-btn full"
-            >
-                Simpan Pembayaran
-            </button>
-
-        </form>
-
     </div>
 
-</div>
 
-
-
-<script src="/script.js"></script>
+    <script src="/script.js"></script>
 
 </body>
 
